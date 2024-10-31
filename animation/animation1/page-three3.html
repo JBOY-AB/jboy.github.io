@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shadow Trail Animation</title>
+        <style>
+            /* Make the body and html take full height of the viewport */
+            body, html {
+                height: 100%;
+                margin: 0;
+                display: flex;
+                justify-content: center; /* Center horizontally */
+                align-items: center; /* Center vertically */
+                background-color: white; /* Background color for contrast */
+            }
+
+            /* Infinity dot style */
+            .infinity-dot {
+                width: 30px; /* Size of the dot */
+                height: 30px;
+                background-color: var(--dot-color,aquamarine); /* Color of the dot */
+                border-radius: 50%; /* Make it a perfect circle */
+                position: absolute;
+                animation: move-infinity 4s infinite linear; /* Infinite movement in an infinity pattern */
+                box-shadow: 0 0 20px var(--dot-color,aquamarine); /* Adds a slight glow to the dot */
+                z-index: 10;
+            }
+
+            /* Adding the trail using a pseudo-element */
+                .infinity-dot::before {
+                content: '';
+                position: absolute;
+                width: 100px; /* Trail width */
+                height: 100px;
+                background: brown; /* Trail color */
+                opacity: 0.4; /* Make the trail semi-transparent */
+                filter: blur(15px); /* Create the trail blur effect */
+                border-radius: 50%;
+                z-index: -1;
+                animation: move-infinity 4s infinite linear; /* Same animation for the trail */
+            }
+
+            /* Keyframes for the infinity movement */
+            @keyframes move-infinity {
+                0% {
+                    transform: translateX(-50px) translateY(0) scale(1); /* Start from left */
+                    background-color: aquamarine;
+                }
+                25% {
+                    transform: translateX(50px) translateY(-50px) scale(1); /* Move to upper right */
+                    background-color: black;
+                }
+                50% {
+                    transform: translateX(-50px) translateY(-100px) scale(1); /* Move to the upper left */
+                    background-color: coral;
+                }
+                75% {
+                    transform: translateX(50px) translateY(-50px) scale(1); /* Back to the lower right */
+                    background-color: cornflowerblue;
+                }
+                100% {
+                    transform: translateX(-50px) translateY(0) scale(1); /* Complete the loop */
+                    background-color: deepskyblue;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="infinity-dot"></div>
+    </body>
+</html>

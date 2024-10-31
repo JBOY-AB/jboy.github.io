@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wiggle Animation</title>
+        <style>
+            body, html {
+                height: 100%;
+                margin: 0;
+            }
+
+                /* Flexbox container to center the line */
+            .container {
+                display: flex;
+                justify-content: center; /* Center horizontally */
+                align-items: center; /* Center vertically */
+                height: 100vh; /* Full viewport height */
+            }
+
+            /* Styling the wiggling line */
+            .wiggling-line {
+                width: 200px; /* Width of the line */
+                height: 5px; /* Thickness of the line */
+                background-color: crimson; /* Line color */
+                transform-origin: center; /* Make the line wiggle from its center */
+                animation: wiggle 2s infinite ease-in-out; /* Apply the wiggle animation */
+            }
+
+            /* Keyframes for the wiggling effect */
+            @keyframes wiggle {
+                0% {
+                    transform: rotate(0deg); /* Start without rotation */
+                }
+                20% {
+                    transform: rotate(8deg); /* Slight rotation clockwise */
+                }
+                40% {
+                    transform: rotate(-8deg); /* Rotate counterclockwise */
+                }
+                60% {
+                    transform: rotate(3deg); /* Smaller clockwise rotation */
+                }
+                80% {
+                    transform: rotate(-3deg); /* Smaller clockwise rotation */
+                }
+                100% {
+                    transform: rotate(0deg); /* Return to original position */
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="wiggling-line"></div>
+        </div>
+    </body>
+</html>

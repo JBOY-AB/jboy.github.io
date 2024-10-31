@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Zigzag Animation</title>
+        <style>
+            .ziggadat {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                background-color: crimson;
+                position: absolute;
+                animation: balloon 20s 5 3s ease-in-out;
+                overflow: hidden;
+            }
+            @keyframes balloon {
+                0% {
+                    top: 0;
+                    left: 0;
+                }
+                10% {
+                    top: 25%;
+                    left: 90%;
+                }
+                20% {
+                    top: 50%;
+                    left: 0;
+                }
+                30% {
+                    top: 75%;
+                    left: 90%;
+                }
+                40% {
+                    top: 90%;
+                    left: 0;
+                }
+                55% {
+                    top: 75%;
+                    left: 90%;
+                }
+                68% {
+                    top: 50%;
+                    left: 0;
+                }
+                80% {
+                    top: 25%;
+                    left: 90%;
+                }
+                100% {
+                    top: 0;
+                    left: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ziggadat"></div>
+    </body>
+</html>
